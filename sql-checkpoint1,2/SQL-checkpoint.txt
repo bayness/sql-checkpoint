@@ -1,0 +1,52 @@
+
+
+CREATE DATABASE record_order;
+
+USE record_order;
+
+CREATE TABLE Product
+(
+Product_id VARCHAR2(20) PRIMARY KEY,
+Product-Name VARCHAR2(20) NOT NULL,
+Price INT POSITIVE VALUE,
+);
+
+CREATE TABLE Customer 
+(
+Customer_id VARCHAR2(20) PRIMARY KEY,
+Customer-Name VARCHAR2(20) NOT NULL,
+Customer_type INT,
+);
+
+
+CREATE TABLE Orders
+(
+Customer_id   VARCHAR2(20) FOREIGN KEY,             
+Product_Name  VARCHAR2(20) FOREIGN KEY,             
+Quantity       INT,
+Total_amount   INT,  
+
+);
+
+
+ALTER TABLE Product
+ADD Category VARCHAR2(20);
+
+ALTER TABLE Orders
+ADD OrderDate(DATE) SYSDATE;
+
+
+// PART 2 (INSERT / UPDATE DELETE)
+
+INSERT INTO Product (Product_id, Product_Name, Category, Price)
+VALUES ((P01, Samsung Galaxy 20, Smartphone, 3299),(P02, ASUS Notebook, PC, 4599));
+
+INSERT INTO Customer (Customer_id, Customer_Name, Customer_Tel)
+VALUES ((C01, Ali, 71321009),(C02, ASMA, 77345823));
+
+
+INSERT INTO Orders (Customer_id, Product_id, OrderDate, Quantity, Total-amount)
+VALUES ((C01, P02, NULL, 2, 9198),(C02, P01, 28/05/2020, 1, 3299));
+
+
+
